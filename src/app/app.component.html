@@ -1,0 +1,7 @@
+<h1>Data</h1>
+<ul *ngFor= "let i of listData.items">
+  <!--<li><a href="#" (click)="random()">{{i.id}}</a></li>-->
+
+  <div class="x" style="width:20px; height:20px" (click)="select(i.id)" [ngClass]="{active: i.id===selectedIndex}">{{i.id}}</div>
+  
+</ul>

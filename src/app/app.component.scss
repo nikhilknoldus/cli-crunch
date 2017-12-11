@@ -1,0 +1,13 @@
+li { color:blue;  }
+li.active { color:orange;  }
+
+.x {
+    border: 5px solid red;
+    display: flex;
+    flex-flow: row nowrap;    
+}
+div.x.active{
+    border-color:green;
+    border: 5px solid;
+    
+}
