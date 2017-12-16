@@ -16,15 +16,16 @@ export class AppComponent implements OnInit {
   title = 'app';
   data:any = {};
 
+
   listData: any = {};
 
- selectedIndex = "";
+  selectedIndex = "";
 
   ngOnInit(){   
-    this.firstFun();
-    this.secondFun();
+    // this.firstFun();
+    // this.secondFun();
     this.getList();
-
+    this.appService.readingLocalFile();
   }
 
   firstFun(){
@@ -56,6 +57,7 @@ export class AppComponent implements OnInit {
   }
 
   select(i){
+    this.firstFun();
     this.selectedIndex = i;
   }
 }
