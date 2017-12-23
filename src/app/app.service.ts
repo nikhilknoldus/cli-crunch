@@ -4,10 +4,13 @@ import "rxjs/add/operator/map";
 import 'rxjs/add/operator/mergeMap';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/mergeMap';
+import {Subject} from 'rxjs/Subject'
 import * as userConfig from '../assets/users.config.json';
 
 @Injectable()
 export class AppService {
+
+private subject = new Subject();
 
   constructor(private http: Http) {
   }
@@ -43,5 +46,12 @@ export class AppService {
       (res) => res.json()
     )
   }
+
+  sendMessage(message){
+    this.subject.next({text:message});
+  }
+    getMessage(): Observable<any> {
+        return this.subject.asObservable();
+    }
 }
 

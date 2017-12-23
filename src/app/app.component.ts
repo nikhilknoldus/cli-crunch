@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {AppService} from './app.service';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import { Subscription } from 'rxjs/Subscription';
 
 
 @Component({
@@ -11,7 +12,11 @@ import 'rxjs/add/operator/map';
 })
 export class AppComponent implements OnInit {
   
-  constructor(private appService:AppService) { }
+   message: any;
+    subscription: Subscription;
+  constructor(private appService:AppService) { 
+      this.subscription = this.appService.getMessage().subscribe(message => { this.message = message; });
+  }
   
   title = 'app';
   data:any = {};
